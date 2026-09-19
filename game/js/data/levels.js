@@ -74,7 +74,7 @@ const LEVELS = [
   },
   {
     id: 'titia',
-    name: { en: "Rafaela's bedroom", pt: 'O quarto da Rafaela' },
+    name: { en: "Rafaela's bedroom", pt: 'Quarto da Rafaela' },
     subtitle: { en: 'Sweets, sweets everywhere', pt: 'Doce, doce por todo lado' },
     found: 'foundTitia',
     bgColor: '#f7b3d0',
