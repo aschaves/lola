@@ -38,9 +38,9 @@ const STRINGS = {
     drumsOff: 'Drums off',
     yuck: 'Eww!',
     caught: 'Caught!',
-    foundHome: 'Lola found her way to a warm lap.',
+    foundHome: 'Lola found her way to dad.',
     foundPraca: 'Lola got a blessing at the praça.',
-    foundTitia: 'Lola is safe with Titia Rafaela.',
+    foundTitia: 'Lola is safe with Rafaela.',
   },
   pt: {
     loading: 'Carregando…',
@@ -80,8 +80,8 @@ const STRINGS = {
     drumsOff: 'Bateria desligada',
     yuck: 'Eca!',
     caught: 'Pegaram!',
-    foundHome: 'A Lola achou um colo quentinho.',
+    foundHome: 'A Lola achou o papai.',
     foundPraca: 'A Lola ganhou uma bênção na praça.',
-    foundTitia: 'A Lola está segura com a Titia Rafaela.',
+    foundTitia: 'A Lola está segura com a Rafaela.',
   },
 };
