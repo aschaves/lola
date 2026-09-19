@@ -80,7 +80,11 @@ const LEVELS = [
     bgColor: '#f7b3d0',
     background: IMG + 'titia/bg.png',
     foreground: IMG + 'titia/fg.png',
-    tiles: tileset('titia', 'STUVWXYZ['),
+    // W and X are deliberately out of alphabetical order. The 2011 game drew tiles from a
+    // flat images/Ltile_<char>.png set, and when the Rafaela art was copied into it the E/F
+    // pair was swapped: Rtile_E became Ltile_X and Rtile_F became Ltile_W. So the map's W is
+    // the top-right corner (tile_F) and its X is the top-left one (tile_E).
+    tiles: tileset('titia', 'STUVXWYZ['),
     rows: MAPS.titia,
     spawn: { col: 3 },
     legend: {
