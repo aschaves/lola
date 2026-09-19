@@ -1,0 +1,47 @@
+# Publishes the game/ folder to GitHub Pages.
+#
+# GitHub runs this automatically on every push to main. It uploads the contents
+# of game/ (and nothing else, so the Java reference stays off the web) and
+# deploys it to https://aschaves.github.io/lola/
+#
+# One-time setup in the repo: Settings > Pages > Source > "GitHub Actions".
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # also allows a manual "Run workflow" button in the Actions tab
+
+# The deploy step needs these; everything else is read-only.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# If two pushes land close together, only deploy the latest one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the game folder
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: game
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
