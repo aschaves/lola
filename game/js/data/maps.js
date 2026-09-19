@@ -1,0 +1,41 @@
+// Original level layouts from reference/maps/map1..3.txt (2011), transcribed verbatim.
+// Letters are tiles, other symbols are creatures and treats; see levels.js for the legend.
+const MAPS = {
+  home: [
+    "                                                                   o     o   ",
+    "                !!!!!           !!!!!                        o      o    o   ",
+    "                       o o o     EBF        o o o    o     o      o          ",
+    "                     IIIIIII   EBGAHBBF    IIIIIII     o     o         2     ",
+    "   !!!!                        C      D                  o      2            ",
+    "                               C      D                    2 EF              ",
+    "                 EF            C      D                     EGD          2   ",
+    "        EF       CD       1   EG  1   D       1            EGAD     -        ",
+    "BBBBBBBBGHBBBBBBBGHBBBBBBBBBBBGAAAAAAAHBBBBBBBBBBBBBBBBBBBBGAAHBBBBBBBBBBBBBB",
+  ],
+  praca: [
+    "KO          o o o                   @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @                 NK",
+    "JM         RRRRRRR                 RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR                LJ",
+    "JM                      o o o                                       NKKKKKKKKKKKKKO     ! ! ! !   LJ",
+    "JM                     RRRRRRR                                      LJJJJJJJJJJJJJM    o o o o o  LJ",
+    "JM                                                          o o     LJJJJJJJJJJJJJQO    ! ! ! !   LJ",
+    "JM                        !                                RRRRR    LJJJJJJJJJJJJJJM   o o o o o  LJ",
+    "JM                RRRRRRRRRRR                                       LJJJJJJJJJJJJJJQO    RRRRR    LJ",
+    "JM       RRR                          RRRRRRRRRRRRR         2       LJJJJJJJJJJJJJJJM  o o o o o  LJ",
+    "JM                      $                                           LJJJJJJJJJJJJJJJQO  o o o o   LJ",
+    "JM              NKKKKKKKKKKKKKKKO     o o o o o o    $            * LJJJJJJJJJJJJJJJJM @ @ @ @ @  LJ",
+    "JQKKKKKKKKKKKKKKPJJJJJJJJJJJJJJJQKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKPJJJJJJJJJJJJJJJJQKKKKKKKKKKKKPJ",
+  ],
+  titia: [
+    "TW          . . .                    . . . . . . . . . . . . . . . . . . . . . .                  XT",
+    "SV         [[[[[[[                  [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[                 US",
+    "SV                        . . .                [                   XTTTTTTTTTTTTTW      , . , .   US",
+    "SV                       [[[[[[[               [                   USSSSSSSSSSSSSV     < > < > <  US",
+    "SV                                             [           . .     USSSSSSSSSSSSSZW     . > < .   US",
+    "SV              [[[[        <                             [[[[[    USSSSSSSSSSSSSSV    . . . . .  US",
+    "SV                        [[[[[                                    USSSSSSSSSSSSSSZW    [[[[[[[   US",
+    "SV          [[[                        [[[[[[[[[[[[[[              USSSSSSSSSSSSSSSV   > > > > >  US",
+    "SV                                                                 USSSSSSSSSSSSSSSZW   < < < <   US",
+    "SV                XTTTTTTTTTTTTTTTW     < < < < < <              ^ USSSSSSSSSSSSSSSSV  . . . . .  US",
+    "SZTTTTTTTTTTTTTTTTYSSSSSSSSSSSSSSSZTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTYSSSSSSSSSSSSSSSSZTTTTTTTTTTTTTYS",
+  ],
+};

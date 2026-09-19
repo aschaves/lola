@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0d0509">
+  <title>Lola</title>
+  <link rel="icon" href="assets/img/ui/icon.gif">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="stage">
+    <div id="frame">
+      <canvas id="game" width="1280" height="800"></canvas>
+
+      <!-- Loading -->
+      <section class="screen art art-loading" id="screen-loading">
+        <div class="loading-box">
+          <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+          <p class="loading-text" data-i18n="loading">Loading…</p>
+        </div>
+      </section>
+
+      <!-- Title -->
+      <section class="screen art art-title" id="screen-title">
+        <div class="title-content">
+          <h1 class="logo"><span class="logo-text">Lola</span><span class="bow" aria-hidden="true"></span></h1>
+          <p class="tagline" data-i18n="tagline">Help Lola find her treats and her family.</p>
+
+          <div class="menu" id="title-menu">
+            <button class="btn primary" data-action="play" data-i18n="play">Play</button>
+            <button class="btn" data-action="levels" data-i18n="levels">Levels</button>
+            <button class="btn" data-action="options" data-i18n="options">Options</button>
+          </div>
+
+          <div class="panel hidden" id="panel-levels">
+            <h2 data-i18n="levels">Levels</h2>
+            <div class="level-list" id="level-list"></div>
+            <button class="btn small" data-action="back" data-i18n="back">Back</button>
+          </div>
+
+          <div class="panel hidden" id="panel-options">
+            <h2 data-i18n="options">Options</h2>
+            <label class="opt"><span data-i18n="sound">Sound effects</span><input type="checkbox" id="opt-sfx" checked></label>
+            <label class="opt"><span data-i18n="music">Music</span><input type="checkbox" id="opt-music" checked></label>
+            <label class="opt"><span data-i18n="language">Language</span>
+              <select id="opt-lang"><option value="pt">Português</option><option value="en">English</option></select>
+            </label>
+            <button class="btn small" data-action="fullscreen" data-i18n="fullscreen">Fullscreen</button>
+            <button class="btn small" data-action="back" data-i18n="back">Back</button>
+          </div>
+
+          <p class="hint" data-i18n="controls">Arrows / WASD to move · Space to jump · Esc to pause</p>
+          <p class="credits" data-i18n="credits">A family game from 2011, brought back to life in 2026.</p>
+        </div>
+      </section>
+
+      <!-- Pause -->
+      <section class="screen dim" id="screen-pause">
+        <div class="card">
+          <h2 data-i18n="paused">Paused</h2>
+          <button class="btn primary" data-action="resume" data-i18n="resume">Resume</button>
+          <button class="btn" data-action="restart" data-i18n="restart">Restart level</button>
+          <button class="btn" data-action="quit" data-i18n="quit">Quit to title</button>
+        </div>
+      </section>
+
+      <!-- Level complete -->
+      <section class="screen dim" id="screen-complete">
+        <div class="card wide">
+          <div class="final-art"><img id="final-img" alt=""></div>
+          <div class="final-info">
+            <h2 data-i18n="levelClear">Level complete!</h2>
+            <p class="final-name" id="final-name"></p>
+            <dl class="stats">
+              <dt data-i18n="treats">Treats</dt><dd id="stat-treats"></dd>
+              <dt data-i18n="time">Time</dt><dd id="stat-time"></dd>
+              <dt data-i18n="bonus">Bonus</dt><dd id="stat-bonus"></dd>
+              <dt data-i18n="score">Score</dt><dd id="stat-score"></dd>
+            </dl>
+            <button class="btn primary" data-action="next" data-i18n="next">Next level</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Game over -->
+      <section class="screen dim" id="screen-gameover">
+        <div class="card">
+          <h2 data-i18n="gameOver">Oh no, Lola!</h2>
+          <p class="muted" data-i18n="gameOverText">Lola got caught too many times. Want to try that level again?</p>
+          <button class="btn primary" data-action="retry" data-i18n="retry">Try again</button>
+          <button class="btn" data-action="quit" data-i18n="quit">Quit to title</button>
+        </div>
+      </section>
+
+      <!-- The end -->
+      <section class="screen art art-end" id="screen-end">
+        <div class="end-content">
+          <h2 data-i18n="theEnd">Lola made it home!</h2>
+          <p class="final-score"><span data-i18n="finalScore">Final score</span> <strong id="end-score">0</strong></p>
+          <button class="btn primary" data-action="again" data-i18n="playAgain">Play again</button>
+          <button class="btn" data-action="quit" data-i18n="quit">Back to title</button>
+        </div>
+      </section>
+
+      <!-- Touch controls -->
+      <div id="touch" class="hidden" aria-hidden="true">
+        <div class="tc-group tc-left">
+          <button class="tc" data-key="left">◀</button>
+          <button class="tc" data-key="right">▶</button>
+        </div>
+        <div class="tc-group tc-right">
+          <button class="tc tc-jump" data-key="jump">▲</button>
+        </div>
+        <button class="tc tc-pause" data-key="pause">II</button>
+      </div>
+
+      <div id="fade"></div>
+    </div>
+  </div>
+
+  <script src="js/data/maps.js"></script>
+  <script src="js/data/music.js"></script>
+  <script src="js/data/sfx.js"></script>
+  <script src="js/data/strings.js"></script>
+  <script src="js/data/levels.js"></script>
+  <script src="js/engine/assets.js"></script>
+  <script src="js/engine/anim.js"></script>
+  <script src="js/engine/input.js"></script>
+  <script src="js/engine/sound.js"></script>
+  <script src="js/game/entities.js"></script>
+  <script src="js/game/world.js"></script>
+  <script src="js/game/render.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
